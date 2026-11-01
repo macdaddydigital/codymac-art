@@ -1,1 +1,153 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cody Mac</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0e0e0e;
+  color: #e8e4dc;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 4rem;
+}
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  color: #f5f0e6;
+}
+.name span { font-style: italic; font-weight: 400; }
+.subtitle {
+  font-size: 1.15rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8a8478;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.bio-frame {
+  max-width: 520px;
+  margin-bottom: 3.5rem;
+  padding: 2rem 2.2rem;
+  border: 12px solid transparent;
+  border-image: linear-gradient(135deg, #c9a87c, #8b7355, #e8d5b5, #a08060) 1;
+  background: #141414;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #d4cfc4;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
+  max-width: 1000px;
+  margin-bottom: 4rem;
+}
+.frame {
+  width: 220px;
+  height: 280px;
+  border: 10px solid transparent;
+  border-image: linear-gradient(160deg, #c9a87c, #6b5a45, #e8d5b5) 1;
+  background: #1a1a1a;
+  padding: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.password-section {
+  text-align: center;
+  margin-top: 1rem;
+}
+.password-section label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #a89f92;
+  letter-spacing: 0.05em;
+}
+.password-section input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #5a544c;
+  color: #e8e4dc;
+  font-family: inherit;
+  font-size: 1.15rem;
+  padding: 0.4rem 0.5rem;
+  width: 220px;
+  text-align: center;
+  outline: none;
+}
+.password-section input:focus { border-bottom-color: #c9a87c; }
+.try-again {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: #7a7368;
+  min-height: 1.2em;
+  font-style: italic;
+}
+.footer {
+  margin-top: auto;
+  padding-top: 3rem;
+  font-size: 0.85rem;
+  color: #5a544c;
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+  <h1 class="name">Cody <span>Mac</span></h1>
+  <p class="subtitle">Charlottetown</p>
+
+  <div class="bio-frame">
+    Cali born. Carny raised. Nomadic by nature. Settled by choice. Now I make art.
+  </div>
+
+  <div class="gallery">
+    <div class="frame"><img src="art1.jpg" alt=""></div>
+    <div class="frame"><img src="art2.jpg" alt=""></div>
+    <div class="frame"><img src="art3.jpg" alt=""></div>
+    <div class="frame"><img src="art4.jpg" alt=""></div>
+    <div class="frame"><img src="art5.jpg" alt=""></div>
+  </div>
+
+  <div class="password-section">
+    <label for="magic">what's the magic word</label>
+    <input type="text" id="magic" autocomplete="off">
+    <div class="try-again" id="message"></div>
+  </div>
+
+  <div class="footer">codymac.art</div>
+
+<script>
+const input = document.getElementById('magic');
+const message = document.getElementById('message');
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    message.textContent = 'try again';
+    input.value = '';
+  }
+});
+input.addEventListener('input', function() {
+  if (message.textContent) message.textContent = '';
+});
+</script>
+</body>
+</html>
